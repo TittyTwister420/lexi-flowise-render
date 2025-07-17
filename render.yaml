@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: lexi-flowise
+    env: node
+    plan: free
+    disk:
+      name: flowise-data
+      mountPath: /var/data/flowise
+      sizeGB: 1
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: FLOWISE_USERNAME
+        value: lexi
+      - key: FLOWISE_PASSWORD
+        value: yourStrongPassword
+      - key: ELEVENLABS_API_KEY
+        value: sk_37f1e283d168c5222fa82aef335ffe8cc23fe78aa7228cad
+      - key: VOICE_ID
+        value: 21m00Tcm4TlvDq8ikWAM
+      - key: DATABASE_PATH
+        value: /var/data/flowise
